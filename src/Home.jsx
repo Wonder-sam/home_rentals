@@ -60,25 +60,25 @@ function Home(){
 
     return(
         <>
-        <div className='relative w-full h-[100vh]'>
+        <div className='relative w-full h-[100vh] md:h-[110vw] lg:h-[100vh]'>
             <div className='absolute bg-[rgba(0,0,0,0.4)] w-[100%] h-[100%] z-[1]'></div>
             <img alt="quote" src={bigHouse} className="absolute object-cover h-full w-full" />
             <div className='absolute z-[2] flex flex-col lg:flex-row items-center justify-around left-[50%] top-[50%] -translate-x-[50%] -translate-y-[50%] items-center w-[100%]'>
-                <p className='text-white font-bold text-[200%] w-[80%] lg:w-[30%] ml-[5%] capitalize'>
+                <p className='text-white font-bold text-[200%] w-[80%] lg:w-[30%] ml-[5%] capitalize text-center lg:text-left'>
                     The Most Affortable Place To Stay In the san franciso bay area
                 </p>
-                <div className ="w-[80%] lg:w-[40%] flex flex-col items-center lg:block mt-8 lg:mt-0">
-                    <div className='w-[75%] bg-red-800 p-0 rounded-2xl overflow-hidden mb-[3%]'>
+                <div className ="w-[90%] md:w-[80%] lg:w-[40%] flex flex-col items-center lg:block mt-8 lg:mt-0">
+                    <div className='w-[80%] md:w-[75%] bg-white p-0 rounded-2xl overflow-hidden mb-[3%]'>
                         <img alt="quote" src={map} className="object-contain w-full" />
                     </div>
-                    <div className='flex items-center justify-center border box-border border-solid border-[rgba(0,0,0,0.2)] rounded-xl p-2 bg-white w-[75%]'>
-                        <select className='p-4 border box-border border-solid border-[rgba(0,0,0,0.2)] rounded-l-lg'>
+                    <div className='flex items-center justify-center border box-border border-solid border-[rgba(0,0,0,0.2)] rounded-xl p-2 bg-white w-[90%] md:w-[75%]'>
+                        <select className='p-2 md:p-4 border box-border border-solid border-[rgba(0,0,0,0.2)] rounded-l-lg'>
                             <option>All Type</option>
                         </select>
-                        <select className='p-4 border box-border border-solid border-[rgba(0,0,0,0.2)]'>
+                        <select className='p-2 md:p-4 border box-border border-solid border-[rgba(0,0,0,0.2)]'>
                             <option>Neighborhood</option>
                         </select>
-                        <button className='bg-[#23A6F0] aspect-square w-[15%] flex justify-center items-center  rounded-r-lg'>
+                        <button className='bg-[#23A6F0] object-cover h-full aspect-square w-[15%] flex justify-center items-center  rounded-r-lg'>
                             <svg width="17" height="16" viewBox="0 0 17 16" fill="none">
                                 <path fillRule="evenodd" clipRule="evenodd" d="M11.9901 10.3188L16.2939 14.6226C16.4452 14.7739 16.5301 14.9792 16.53 15.1932C16.53 15.4072 16.4449 15.6124 16.2935 15.7637C16.1421 15.915 15.9368 15.9999 15.7228 15.9998C15.5088 15.9998 15.3036 15.9147 15.1523 15.7633L10.8485 11.4595C9.56197 12.456 7.9441 12.9249 6.32406 12.7709C4.70401 12.6169 3.20349 11.8515 2.12774 10.6304C1.05199 9.40936 0.481819 7.82433 0.533226 6.19779C0.584633 4.57125 1.25375 3.02539 2.40446 1.87468C3.55517 0.723966 5.10104 0.0548478 6.72757 0.00344105C8.35411 -0.0479657 9.93914 0.522201 11.1602 1.59795C12.3813 2.6737 13.1467 4.17423 13.3007 5.79427C13.4547 7.41432 12.9858 9.03219 11.9893 10.3188H11.9901ZM6.93033 11.1995C8.20331 11.1995 9.42415 10.6938 10.3243 9.7937C11.2244 8.89356 11.7301 7.67272 11.7301 6.39974C11.7301 5.12676 11.2244 3.90592 10.3243 3.00579C9.42415 2.10565 8.20331 1.59997 6.93033 1.59997C5.65735 1.59997 4.43651 2.10565 3.53637 3.00579C2.63624 3.90592 2.13055 5.12676 2.13055 6.39974C2.13055 7.67272 2.63624 8.89356 3.53637 9.7937C4.43651 10.6938 5.65735 11.1995 6.93033 11.1995Z" fill="white"/>
                             </svg>
@@ -88,16 +88,17 @@ function Home(){
             </div>
         </div>
         <div className='lg:p-[5%]'>
-            <div className='mb-4 pl-[5%] pt-[5%] lg:pl-0 lg:pt-[5%]'>
+            <div className='mb-4 pl-[5%] pt-[5%] lg:pl-0 lg:pt-[5%] mb-8 md:mb-11'>
                 <p className='underline inline-block capitalize text-xl lg:text-3xl font-bold underline-offset-8 decoration-[#F4511E]'>minimum living cost </p>
                 <div className='w-[0.4%] inline-block lg:text-3xl'></div>
                 <p className='inline-block capitalize text-xl lg:text-3xl font-bold'>takes care of everything</p>
             </div>
             <div className='relative flex w-full flex-col lg:flex-row justify-between items-center'>
-                <div className='w-full lg:w-[35%]'>
-                    <img alt="house" src={house1} width='100%' className="w-[100vw] aspect-square lg:aspect-auto object-fill" />
+                <div className='lg:hidden absolute top-0 w-full h-full bg-[rgba(0,0,0,0.65)]'/>
+                <div className='w-full lg:w-[35%] rounded-tl-[11%] rounded-br-[11%] overflow-hidden'>
+                    <img alt="house" src={house1} width='100%' className="w-[100vw] aspect-square md:aspect-video lg:aspect-auto object-fill" />
                 </div>
-                <div className='absolute top-[50%] left-[50%] p-[5%] lg:p-0 -translate-x-[50%] -translate-y-[50%] lg:translate-y-[0%] lg:translate-x-[0%] lg:static grid grid-cols-3 w-full lg:w-[60%] gap-y-20'>
+                <div className='box-border text-sm md:text-base absolute top-[50%] left-[50%] p-[5%] lg:p-0 -translate-x-[50%] text-white lg:text-black -translate-y-[50%] lg:translate-y-[0%] lg:translate-x-[0%] lg:static grid grid-cols-3 w-[100%] md:w-[80%] aspect-square md:aspect-auto lg:w-[60%] gap-y-10 md:gap-y-20'>
                     <div className='w-[90%] lg:w-[75%]'>
                         <div className='mb-4 flex justify-center items-center bg-white p-2 drop-shadow-xl rounded-md aspect-square w-[50%]'>
                             <svg width="39" height="39" viewBox="0 0 39 39" fill="none">
@@ -164,15 +165,15 @@ function Home(){
         <div className='p-[5%] w-full bg-[#F5F5F5] flex flex-col'>
             <div className='flex justify-between items-center mb-6'>
                 <div className='mb-4 w-[70%]'>
-                    <p className='underline inline-block capitalize text-[36px] font-bold underline-offset-8 decoration-[#F4511E]'>List</p>
+                    <p className='underline inline-block capitalize  text-xl lg:text-[36px] font-bold underline-offset-8 decoration-[#F4511E]'>List</p>
                     <div className='w-[1%] inline-block text-[36px]'></div>
-                    <p className='inline-block capitalize text-[36px] font-bold'>of properties</p>
+                    <p className='inline-block capitalize text-xl lg:text-[36px] font-bold'>of properties</p>
                 </div>
-                <button className='bg-[#F4511E] p-4 rounded'>
-                    <p className='capitalize'>View all property</p>
+                <button className='bg-[#F4511E] p-2 lg:p-4 rounded'>
+                    <p className='capitalize'>View all <span className='hidden lg:inline-block'>property</span></p>
                 </button>
             </div>
-            <div className="grid grid-cols-3 gap-x-10 gap-y-20 w-full justify-items-stretch mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-10 lg:gap-y-20 w-full justify-items-stretch mb-16">
                 {
                     properties.map((prop, index)=>(
                         
@@ -221,30 +222,30 @@ function Home(){
                 
             </div>
             <div className='rounded-xl border border-[#BDBDBD] overflow-hidden w-fit self-center'>
-                <button className='p-6 bg-[#F3F3F3]'>
+                <button className='p-4 lg:p-6 bg-[#F3F3F3]'>
                     <p>First</p>
                 </button>
-                <button className='p-6 bg-[#FFFFFF] border-r border-[#BDBDBD]'>
+                <button className='p-4 lg:p-6 bg-[#FFFFFF] border-r border-[#BDBDBD]'>
                     <p>1</p>
                 </button>
-                <button className='p-6 bg-[#F4511E] border-r border-[#BDBDBD]'>
+                <button className='p-4 lg:p-6 bg-[#F4511E] border-r border-[#BDBDBD]'>
                     <p>2</p>
                 </button>
-                <button className='p-6 bg-[#FFFFFF] border-r border-[#BDBDBD]'>
+                <button className='p-4 lg:p-6 bg-[#FFFFFF] border-r border-[#BDBDBD]'>
                     <p>3</p>
                 </button>
-                <button className='p-6 bg-[#FFFFFF]'>
+                <button className='p-4 lg:p-6 bg-[#FFFFFF]'>
                     <p>Next</p>
                 </button>
             </div>
         </div>
-        <div className='w-full bg-[#FFFFFF] flex p-[5%] items-center justify-start'>
-            <div className='w-[50%]'>
+        <div className='w-full bg-[#FFFFFF] flex flex-col lg:flex-row p-[5%] items-center justify-start'>
+            <div className='w-[100%] md:w-[90%] lg:w-[50%]'>
                 <div className='grid grid-cols-2 items-end mb-4 justify-items-center'>
                     {
                         flexible.map((flex, index)=>(
                             index<=1?
-                            <div className={index===0?'relative rounded-xl w-[70%]':'relative rounded-xl w-[70%] ml-[-45%]'}>
+                            <div key={index} className={index===0?'relative rounded-xl w-[90%] md:w-[80%] lg:w-[70%]':'relative rounded-xl w-[90%] md:w-[80%] lg:w-[70%] ml-[-5%] md:ml-[-35%] lg:ml-[-45%]'}>
                                 <img alt="quote" src={flex.img} />
                                 <p className='w-[70%] text-center text-sm capitalize text-white font-bold absolute top-4 left-[50%] translate-x-[-50%]'>{flex.title}</p>
                             </div>
@@ -256,7 +257,7 @@ function Home(){
                     {
                         flexible.map((flex, index)=>(
                             index>=2?
-                            <div className={index===2?'relative rounded-xl w-[60%] ml-[-10%]': "relative rounded-xl w-[90%] ml-[-45%] "}>
+                            <div key={index} className={index===2?'relative rounded-xl w-[80%] md:w-[70%] lg:w-[60%] ml-0 md:ml-[10%] lg:ml-[-10%]': "relative rounded-xl w-[90%] ml-[-5%] md:ml-[-30%] lg:ml-[-45%] "}>
                                 <img alt="quote" src={flex.img} />
                                 <p className='w-[70%] text-center text-sm capitalize text-white font-bold absolute top-4 left-[50%] translate-x-[-50%]'>{flex.title}</p>
                             </div>
@@ -265,11 +266,11 @@ function Home(){
                     }
                 </div>
             </div>
-            <div className='w-[40%]'>
-                <p className='w-[70%] font-bold text-3xl mb-4 leading-10'>
+            <div className='w-full lg:w-[40%] flex lg:block flex-col align-center mt-4 lg:mt-0'>
+                <p className='w-full lg:w-[70%] font-bold text-3xl mb-4 leading-10'>
                     Flexibility and options to suit your lifestyle.
                 </p>
-                <p className='w-[70%] text-sm leading-6 mb-4'>
+                <p className='w-full lg:w-[70%] text-sm leading-6 mb-4'>
                     You need it? We got it. We make finding your next home easy, comfortable, and simple. From our happiness 
                     guarantee to our selective roommate finder option. We provide you the flexibility that you most desire.
                 </p>
@@ -279,46 +280,46 @@ function Home(){
             </div>
         </div>
         <div className='p-[5%] flex flex-col items-center font-medium w-full'>
-            <p className='mb-6'>Your property with us and be Confident that Your Room will be Filled Out!</p>
-            <div className='flex flex-col items-center w-[80%] drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)] bg-white rounded-xl p-6'>
+            <p className='mb-6 text-small md:text-base text-center'>Your property with us and be Confident that Your Room will be Filled Out!</p>
+            <div className='flex flex-col items-center w-full lg:w-[80%] drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)] bg-white rounded-xl p-6'>
                 <p className='text-[#F4511E] font-bold text-xl mb-10'>Add A New Property</p>
-                <div className='grid grid-cols-3 gap-x-6 gap-y-6 font-normal mb-10'>
+                <div className='grid grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-6 font-normal mb-10'>
                     <div className='flex flex-col font-semibold'>
-                        <label for="name">Name<span className='text-[#F4511E]'> *</span></label>
+                        <label>Name<span className='text-[#F4511E]'> *</span></label>
                         <input type='text' name='name' placeholder="Enter Name" className='bg-[#F9F9F9] p-2 rounded-md placeholder:font-normal border border-[#E6E6E6]'/>
                     </div>
                     <div className='flex flex-col font-semibold'>
-                        <label for="address">Address<span className='text-[#F4511E]'> *</span></label>
+                        <label>Address<span className='text-[#F4511E]'> *</span></label>
                         <input type='text' name='address' placeholder="Enter Address" className='bg-[#F9F9F9] p-2 rounded-md placeholder:font-normal border border-[#E6E6E6]'/>
                     </div>
                     <div className='flex flex-col font-semibold'>
-                        <label for="unit">Unit Number<span className='text-[#F4511E]'> *</span></label>
+                        <label>Unit Number<span className='text-[#F4511E]'> *</span></label>
                         <input type='text' name='unit' placeholder="Enter Unit" className='bg-[#F9F9F9] p-2 rounded-md placeholder:font-normal border border-[#E6E6E6]'/>
                     </div>
                     <div className='flex flex-col font-semibold'>
-                        <label for="city">City<span className='text-[#F4511E]'> *</span></label>
+                        <label>City<span className='text-[#F4511E]'> *</span></label>
                         <select className='bg-[#F9F9F9] p-2 text-[#737373] rounded-md placeholder:font-normal border border-[#E6E6E6]'>
                             <option>Select City</option>
                         </select>
                     </div>
                     <div className='flex flex-col font-semibold'>
-                        <label for="state">State<span className='text-[#F4511E]'> *</span></label>
+                        <label>State<span className='text-[#F4511E]'> *</span></label>
                         <input type='text' name='state' placeholder="Enter Name" className='bg-[#F9F9F9] p-2 rounded-md placeholder:font-normal border border-[#E6E6E6]'/>
                     </div>
                     <div className='flex flex-col font-semibold'>
-                        <label for="room">Room Type <span className='text-[#F4511E]'> *</span></label>
+                        <label>Room Type <span className='text-[#F4511E]'> *</span></label>
                         <input type='text' name='room' placeholder="Enter Name" className='bg-[#F9F9F9] p-2 rounded-md placeholder:font-normal border border-[#E6E6E6] border border-[#E6E6E6]'/>
                     </div>
                     <div className='flex flex-col font-semibold'>
-                        <label for="price">Price <span className='text-[#F4511E]'> *</span></label>
+                        <label>Price <span className='text-[#F4511E]'> *</span></label>
                         <input type='text' name='price' placeholder="Enter Price" className='bg-[#F9F9F9] p-2 rounded-md placeholder:font-normal border border-[#E6E6E6]'/>
                     </div>
-                    <div className='flex flex-col font-semibold col-span-3'>
-                        <label for="desc">Description <span className='text-[#F4511E]'> *</span></label>
+                    <div className='flex flex-col font-semibold col-span-full'>
+                        <label>Description <span className='text-[#F4511E]'> *</span></label>
                         <textarea name='desc' placeholder='Enter Description' rows={5} className='bg-[#F9F9F9] p-2 rounded-md placeholder:font-normal border border-[#E6E6E6]'/>
                     </div>
-                    <div className='flex flex-col font-semibold col-span-3'>
-                        <label for="photo">Upload Photos</label>
+                    <div className='flex flex-col font-semibold col-span-full'>
+                        <label>Upload Photos</label>
                         <div {...getRootProps({style})}>
                             <input {...getInputProps()} />
                             <p className='font-medium'>Drag your images here, or <span className='text-[#F4511E] hover:cursor-pointer'>browse</span></p>
@@ -326,7 +327,7 @@ function Home(){
                         </div>
                     </div>
                 </div>
-                <button className='bg-[#F4511E] py-4 w-[40%] rounded-lg'>
+                <button className='bg-[#F4511E] py-4 px-4 w-fit rounded-lg'>
                     <p className='text-white'>Add New Property</p>
                 </button>
             </div>
@@ -345,11 +346,11 @@ function Home(){
         >
             {
                 [1,1,1].map((swip, index)=>(
-                    <SwiperSlide>
-                        <div className='flex items-center bg-[rgba(244,81,30,0.07)] w-full'>
-                            <div className='w-[60%]'>
+                    <SwiperSlide key={index}>
+                        <div className='flex flex-col lg:flex-row items-center bg-[rgba(244,81,30,0.07)] w-full'>
+                            <div className='w-full lg:w-[60%]'>
                                 <div className='relative flex flex-col items-center justify-center'>
-                                    <p className='w-[60%] leading-8 mb-4 mt-10'>
+                                    <p className='w-[80%] lg:w-[60%] leading-8 mb-4 mt-10'>
                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum nisl et nunc facilisis, 
                                         a commodo eros mollis. Nunc vel pellentesque est. Curabitur at odio sit amet libero vulputate efficitur 
                                         ac nec justo. Nulla vitae mauris quam. Nulla quam massa, faucibus id pretium ac, mattis eu velit. Donec sed 
@@ -357,7 +358,7 @@ function Home(){
                                     </p>
                                     <img alt="quote" src={quote} className="absolute top-[2%] left-[13%] opacity-[0.3] "/>
                                     
-                                    <div className='w-[60%] flex justify-start items-center mb-20'>
+                                    <div className='w-[80%] lg:w-[60%] flex justify-start items-center mb-20'>
                                         <div className='w-[15%] aspect-square rounded-full mr-2 overflow-hidden'>
                                             <img alt="user" src={user} className="w-full object-cover" />
                                         </div>
@@ -368,7 +369,7 @@ function Home(){
                                     </div>
                                 </div>
                             </div>
-                            <div className='w-[40%] relative'>
+                            <div className='w-full lg:w-[40%] relative'>
                                 <img alt="quote" src={hello} className="object-cover w-full" />
                                 <div className='absolute z-[1] top-0  left-0 right-0 bottom-0 bg-[rgba(0,0,0,0.3)]'></div>
                                 <img alt="play icon" src={play} className="absolute left-[50%] top-[50%] z-[2] -translate-x-[50%] -translate-y-[50%]" />
@@ -382,17 +383,17 @@ function Home(){
 
         <div className='flex flex-col px-[10%] py-[5%] w-full'>
             <div className='h-[2px] w-full bg-[#F4511E] mt-14'></div>
-            <div className='flex py-[5%]'>
-                <div className='w-[50%] flex justify-center items-center'>
+            <div className='flex flex-col lg:flex-row py-[5%]'>
+                <div className='w-full lg:w-[50%] flex justify-center items-center mb-4 lg:mb-0'>
                     <img alt="logo" src={logoCol} />
                 </div>
-                <div className='w-[50%]'>
-                    <div className='w-[75%] grid grid-cols-2 gap-y-4 justify-items-stretch mb-4'>
+                <div className='w-full lg:w-[50%]'>
+                    <div className='w-full lg:w-[75%] grid grid-cols-2 gap-y-4 justify-items-stretch mb-4'>
                         <p className='text-[80%] text-[#0A142F] col-span-2'><img alt="quote" src={loc} className="inline-block mr-4" />345 Faulconer Drive, Suite 4 • Charlottesville, CA, 12345</p>
                         <p className='text-[80%] text-[#0A142F]'><img alt="quote" src={phone} className="inline-block mr-4" />(123) 456-7890</p>
                         <p className='text-[80%] text-[#0A142F]'><img alt="quote" src={print} className="inline-block mr-4" />(123) 456-7890</p>
                     </div>
-                    <div className='flex items-center justify-between w-[65%]'>
+                    <div className='flex items-center justify-between w-full lg:w-[65%]'>
                         <p className='text-[80%] text-[#0A142F] opacity-[0.5]'>Social Media</p>
                         <img alt="fb icon" src={fb} />
                         <img alt="twitter icon" src={twit} />
@@ -405,15 +406,15 @@ function Home(){
                     </div>
                 </div>
             </div>
-            <div className='flex items-center'>
-                <ul className='flex w-[50%] justify-evenly'>
+            <div className='flex flex-col lg:flex-row items-center'>
+                <ul className='flex flex-col lg:flex-row w-full lg:w-[50%] justify-evenly leading-[3em] lg:leading-auto'>
                     <li>ABOUT US</li>
                     <li>CONTACT US</li>
                     <li>HELP</li>
                     <li>PRIVACY POLICY</li>
                     <li>DISCLAIMER</li>
                 </ul>
-                <p className='text-[90%] text-[#0A142F] opacity-[0.5]'>Copyright © 2020 Minimumlivingcost. All rights reserved</p>
+                <p className='text-[90%] text-[#0A142F] opacity-[0.5] text-center'>Copyright © 2020 Minimumlivingcost. All rights reserved</p>
             </div>
         </div>
         </>
