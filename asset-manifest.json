@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.css": "/home_rentals/static/css/main.8fd3484a.css",
+    "main.js": "/home_rentals/static/js/main.9a9298dc.js",
+    "static/js/787.0f4012aa.chunk.js": "/home_rentals/static/js/787.0f4012aa.chunk.js",
+    "static/media/bigHouse.png": "/home_rentals/static/media/bigHouse.142e928d18cf83431394.png",
+    "static/media/hello.jpg": "/home_rentals/static/media/hello.58bd19259072c51dc9cf.jpg",
+    "static/media/house1.png": "/home_rentals/static/media/house1.faa2cc8499ae51be151e.png",
+    "static/media/ma.png": "/home_rentals/static/media/ma.e6b49f8db4fb1fc16d7d.png",
+    "static/media/flex4.png": "/home_rentals/static/media/flex4.c01d117e1109471ec6bd.png",
+    "static/media/prop2.png": "/home_rentals/static/media/prop2.c862f42ae256de40fe24.png",
+    "static/media/prop5.png": "/home_rentals/static/media/prop5.d92755023162bba6ff4f.png",
+    "static/media/prop6.png": "/home_rentals/static/media/prop6.a7200949f52d018a9d90.png",
+    "static/media/prop4.png": "/home_rentals/static/media/prop4.3b96b766b6ec6c937072.png",
+    "static/media/flex2.png": "/home_rentals/static/media/flex2.b833b04a946333034ce7.png",
+    "static/media/prop1.png": "/home_rentals/static/media/prop1.5edb649b39796878d38a.png",
+    "static/media/prop3.png": "/home_rentals/static/media/prop3.81c9b914ceb873c4d0c7.png",
+    "static/media/flex1.png": "/home_rentals/static/media/flex1.14647cbc53bf22a9f6af.png",
+    "static/media/flex3.png": "/home_rentals/static/media/flex3.2220923b9c471ad2b568.png",
+    "static/media/gram.svg": "/home_rentals/static/media/gram.a8687bd88843057f9a522f452e8ba422.svg",
+    "static/media/logo.svg": "/home_rentals/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "static/media/pin.svg": "/home_rentals/static/media/pin.200a7653ebf8967ab178b37a3a4d7664.svg",
+    "static/media/tube.svg": "/home_rentals/static/media/tube.14d5fd7c7f20aff9c9c4cefe3ce6a427.svg",
+    "static/media/twit.svg": "/home_rentals/static/media/twit.b02754dec46dc636a2a3a123827a5440.svg",
+    "static/media/quote.svg": "/home_rentals/static/media/quote.804a5c6ba76820b28f66644d3de339f9.svg",
+    "static/media/lin.svg": "/home_rentals/static/media/lin.dfb78a754e0006cacf023a7e674fe444.svg",
+    "static/media/gplus.svg": "/home_rentals/static/media/gplus.236dc73785855e9cf66d32e4f5ecda40.svg",
+    "index.html": "/home_rentals/index.html",
+    "static/media/play.svg": "/home_rentals/static/media/play.af354122d4002562643133212099ece5.svg",
+    "static/media/rss.svg": "/home_rentals/static/media/rss.c7c2e36ff4c336549850c8308e98c346.svg",
+    "static/media/fb.svg": "/home_rentals/static/media/fb.df0bd61ed15652fadd6041ecdb2643fa.svg",
+    "static/media/print.svg": "/home_rentals/static/media/print.c6011704fc780d663e81c12dc83172bf.svg",
+    "static/media/phone.svg": "/home_rentals/static/media/phone.a7e07808938fd60eb9725f5d008508fc.svg",
+    "static/media/loc.svg": "/home_rentals/static/media/loc.58f5d8fe6f5eafda0e9702256c5a9f8d.svg",
+    "main.8fd3484a.css.map": "/home_rentals/static/css/main.8fd3484a.css.map",
+    "main.9a9298dc.js.map": "/home_rentals/static/js/main.9a9298dc.js.map",
+    "787.0f4012aa.chunk.js.map": "/home_rentals/static/js/787.0f4012aa.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8fd3484a.css",
+    "static/js/main.9a9298dc.js"
+  ]
+}
