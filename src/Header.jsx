@@ -8,7 +8,7 @@ function Header() {
         <>
             <div className="absolute w-[80%] left-[50%] py-4 translate-x-[-50%] z-[2] flex border-b justify-between border-white border-solid">
                 <div className="w-[15%] object-contain">
-                <img src={logo} className="w-[80%]"/>
+                <img src={logo} className="w-[80%]" alt=""/>
                 </div>
                 <ul className="flex  w-[40%] justify-between items-end text-white mr-[30%] ">
                     <li><NavLink to="Home" className={({isActive})=>isActive? activeClassName: undefined}>Home</NavLink></li>

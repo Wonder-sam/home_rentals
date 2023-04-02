@@ -20,6 +20,12 @@ import logoCol from './assets/logoCol.png'
 import { flexible, properties } from './homeData'
 import { useDropzone } from 'react-dropzone';
 import { useCallback, useMemo } from 'react'
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import './App.css'
 
 const baseStyle = {
     display: 'flex',
@@ -50,21 +56,20 @@ function Home(){
 
     const style = useMemo(() => ({
         ...baseStyle,
-      }),);
+      }),[]);
 
     return(
         <>
         <div className='relative w-full h-[100vh]'>
-            <div className='absolute bg-[rgba(0,0,0,0.4)] w-[100%] h-[100%] z-[1]'>
-            </div>
-            <img src={bigHouse} className="absolute object-cover h-full w-full" />
-            <div className='absolute z-[2] flex items-center justify-around left-[50%] top-[50%] -translate-x-[50%] -translate-y-[50%] items-center w-[100%]'>
-                <p className='text-white font-bold text-[200%] w-[30%] ml-[5%] capitalize'>
+            <div className='absolute bg-[rgba(0,0,0,0.4)] w-[100%] h-[100%] z-[1]'></div>
+            <img alt="quote" src={bigHouse} className="absolute object-cover h-full w-full" />
+            <div className='absolute z-[2] flex flex-col lg:flex-row items-center justify-around left-[50%] top-[50%] -translate-x-[50%] -translate-y-[50%] items-center w-[100%]'>
+                <p className='text-white font-bold text-[200%] w-[80%] lg:w-[30%] ml-[5%] capitalize'>
                     The Most Affortable Place To Stay In the san franciso bay area
                 </p>
-                <div className ="w-[40%]">
+                <div className ="w-[80%] lg:w-[40%] flex flex-col items-center lg:block mt-8 lg:mt-0">
                     <div className='w-[75%] bg-red-800 p-0 rounded-2xl overflow-hidden mb-[3%]'>
-                        <img src={map} className="object-contain w-full" />
+                        <img alt="quote" src={map} className="object-contain w-full" />
                     </div>
                     <div className='flex items-center justify-center border box-border border-solid border-[rgba(0,0,0,0.2)] rounded-xl p-2 bg-white w-[75%]'>
                         <select className='p-4 border box-border border-solid border-[rgba(0,0,0,0.2)] rounded-l-lg'>
@@ -82,18 +87,18 @@ function Home(){
                 </div>
             </div>
         </div>
-        <div className='p-[5%]'>
-            <div className='mb-4'>
-                <p className='underline inline-block capitalize text-[36px] font-bold underline-offset-8 decoration-[#F4511E]'>minimum living cost </p>
-                <div className='w-[0.4%] inline-block text-[36px]'></div>
-                <p className='inline-block capitalize text-[36px] font-bold'>takes care of everything</p>
+        <div className='lg:p-[5%]'>
+            <div className='mb-4 pl-[5%] pt-[5%] lg:pl-0 lg:pt-[5%]'>
+                <p className='underline inline-block capitalize text-xl lg:text-3xl font-bold underline-offset-8 decoration-[#F4511E]'>minimum living cost </p>
+                <div className='w-[0.4%] inline-block lg:text-3xl'></div>
+                <p className='inline-block capitalize text-xl lg:text-3xl font-bold'>takes care of everything</p>
             </div>
-            <div className='flex w-full justify-between items-center'>
-                <div className='w-[35%]'>
-                    <img src={house1} />
+            <div className='relative flex w-full flex-col lg:flex-row justify-between items-center'>
+                <div className='w-full lg:w-[35%]'>
+                    <img alt="house" src={house1} width='100%' className="w-[100vw] aspect-square lg:aspect-auto object-fill" />
                 </div>
-                <div className='grid grid-cols-3 w-[60%] gap-y-20'>
-                    <div className='w-[75%]'>
+                <div className='absolute top-[50%] left-[50%] p-[5%] lg:p-0 -translate-x-[50%] -translate-y-[50%] lg:translate-y-[0%] lg:translate-x-[0%] lg:static grid grid-cols-3 w-full lg:w-[60%] gap-y-20'>
+                    <div className='w-[90%] lg:w-[75%]'>
                         <div className='mb-4 flex justify-center items-center bg-white p-2 drop-shadow-xl rounded-md aspect-square w-[50%]'>
                             <svg width="39" height="39" viewBox="0 0 39 39" fill="none">
                                 <path d="M19.5 38.25C9.14439 38.25 0.750015 29.8556 0.750015 19.5C0.750015 9.14437 9.14439 0.75 19.5 0.75C29.8556 0.75 38.25 9.14437 38.25 19.5C38.25 29.8556 29.8556 38.25 19.5 38.25ZM19.5 34.5C23.4783 34.5 27.2936 32.9196 30.1066 30.1066C32.9197 27.2936 34.5 23.4782 34.5 19.5C34.5 15.5218 32.9197 11.7064 30.1066 8.8934C27.2936 6.08035 23.4783 4.5 19.5 4.5C15.5218 4.5 11.7065 6.08035 8.89341 8.8934C6.08037 11.7064 4.50001 15.5218 4.50001 19.5C4.50001 23.4782 6.08037 27.2936 8.89341 30.1066C11.7065 32.9196 15.5218 34.5 19.5 34.5ZM12.9375 23.25H23.25C23.4987 23.25 23.7371 23.1512 23.9129 22.9754C24.0887 22.7996 24.1875 22.5611 24.1875 22.3125C24.1875 22.0639 24.0887 21.8254 23.9129 21.6496C23.7371 21.4738 23.4987 21.375 23.25 21.375H15.75C14.5068 21.375 13.3145 20.8811 12.4355 20.0021C11.5564 19.123 11.0625 17.9307 11.0625 16.6875C11.0625 15.4443 11.5564 14.252 12.4355 13.3729C13.3145 12.4939 14.5068 12 15.75 12H17.625V8.25H21.375V12H26.0625V15.75H15.75C15.5014 15.75 15.2629 15.8488 15.0871 16.0246C14.9113 16.2004 14.8125 16.4389 14.8125 16.6875C14.8125 16.9361 14.9113 17.1746 15.0871 17.3504C15.2629 17.5262 15.5014 17.625 15.75 17.625H23.25C24.4932 17.625 25.6855 18.1189 26.5646 18.9979C27.4437 19.877 27.9375 21.0693 27.9375 22.3125C27.9375 23.5557 27.4437 24.748 26.5646 25.6271C25.6855 26.5061 24.4932 27 23.25 27H21.375V30.75H17.625V27H12.9375V23.25Z" fill="#F4511E"/>
@@ -103,7 +108,7 @@ function Home(){
                         <p className='capitalize font-bold'>as possible!</p>
                     </div>
 
-                    <div className='w-[75%]'>
+                    <div className='w-[90%] lg:w-[75%]'>
                         <div className='mb-4 flex justify-center items-center bg-white p-2 drop-shadow-xl rounded-md aspect-square w-[50%]'>
                             <svg width="39" height="39" viewBox="0 0 39 39" fill="none">
                                 <path d="M19.5 38.25C9.14439 38.25 0.750015 29.8556 0.750015 19.5C0.750015 9.14437 9.14439 0.75 19.5 0.75C29.8556 0.75 38.25 9.14437 38.25 19.5C38.25 29.8556 29.8556 38.25 19.5 38.25ZM19.5 34.5C23.4783 34.5 27.2936 32.9196 30.1066 30.1066C32.9197 27.2936 34.5 23.4782 34.5 19.5C34.5 15.5218 32.9197 11.7064 30.1066 8.8934C27.2936 6.08035 23.4783 4.5 19.5 4.5C15.5218 4.5 11.7065 6.08035 8.89341 8.8934C6.08037 11.7064 4.50001 15.5218 4.50001 19.5C4.50001 23.4782 6.08037 27.2936 8.89341 30.1066C11.7065 32.9196 15.5218 34.5 19.5 34.5ZM12.9375 23.25H23.25C23.4987 23.25 23.7371 23.1512 23.9129 22.9754C24.0887 22.7996 24.1875 22.5611 24.1875 22.3125C24.1875 22.0639 24.0887 21.8254 23.9129 21.6496C23.7371 21.4738 23.4987 21.375 23.25 21.375H15.75C14.5068 21.375 13.3145 20.8811 12.4355 20.0021C11.5564 19.123 11.0625 17.9307 11.0625 16.6875C11.0625 15.4443 11.5564 14.252 12.4355 13.3729C13.3145 12.4939 14.5068 12 15.75 12H17.625V8.25H21.375V12H26.0625V15.75H15.75C15.5014 15.75 15.2629 15.8488 15.0871 16.0246C14.9113 16.2004 14.8125 16.4389 14.8125 16.6875C14.8125 16.9361 14.9113 17.1746 15.0871 17.3504C15.2629 17.5262 15.5014 17.625 15.75 17.625H23.25C24.4932 17.625 25.6855 18.1189 26.5646 18.9979C27.4437 19.877 27.9375 21.0693 27.9375 22.3125C27.9375 23.5557 27.4437 24.748 26.5646 25.6271C25.6855 26.5061 24.4932 27 23.25 27H21.375V30.75H17.625V27H12.9375V23.25Z" fill="#F4511E"/>
@@ -113,7 +118,7 @@ function Home(){
                         <p className='capitalize font-bold'>of community!</p>
                     </div>
 
-                    <div className='w-[75%]'>
+                    <div className='w-[90%] lg:w-[75%]'>
                         <div className='mb-4 flex justify-center items-center bg-white p-2 drop-shadow-xl rounded-md aspect-square w-[50%]'>
                             <svg width="39" height="39" viewBox="0 0 39 39" fill="none">
                                 <path d="M19.5 38.25C9.14439 38.25 0.750015 29.8556 0.750015 19.5C0.750015 9.14437 9.14439 0.75 19.5 0.75C29.8556 0.75 38.25 9.14437 38.25 19.5C38.25 29.8556 29.8556 38.25 19.5 38.25ZM19.5 34.5C23.4783 34.5 27.2936 32.9196 30.1066 30.1066C32.9197 27.2936 34.5 23.4782 34.5 19.5C34.5 15.5218 32.9197 11.7064 30.1066 8.8934C27.2936 6.08035 23.4783 4.5 19.5 4.5C15.5218 4.5 11.7065 6.08035 8.89341 8.8934C6.08037 11.7064 4.50001 15.5218 4.50001 19.5C4.50001 23.4782 6.08037 27.2936 8.89341 30.1066C11.7065 32.9196 15.5218 34.5 19.5 34.5ZM12.9375 23.25H23.25C23.4987 23.25 23.7371 23.1512 23.9129 22.9754C24.0887 22.7996 24.1875 22.5611 24.1875 22.3125C24.1875 22.0639 24.0887 21.8254 23.9129 21.6496C23.7371 21.4738 23.4987 21.375 23.25 21.375H15.75C14.5068 21.375 13.3145 20.8811 12.4355 20.0021C11.5564 19.123 11.0625 17.9307 11.0625 16.6875C11.0625 15.4443 11.5564 14.252 12.4355 13.3729C13.3145 12.4939 14.5068 12 15.75 12H17.625V8.25H21.375V12H26.0625V15.75H15.75C15.5014 15.75 15.2629 15.8488 15.0871 16.0246C14.9113 16.2004 14.8125 16.4389 14.8125 16.6875C14.8125 16.9361 14.9113 17.1746 15.0871 17.3504C15.2629 17.5262 15.5014 17.625 15.75 17.625H23.25C24.4932 17.625 25.6855 18.1189 26.5646 18.9979C27.4437 19.877 27.9375 21.0693 27.9375 22.3125C27.9375 23.5557 27.4437 24.748 26.5646 25.6271C25.6855 26.5061 24.4932 27 23.25 27H21.375V30.75H17.625V27H12.9375V23.25Z" fill="#F4511E"/>
@@ -123,7 +128,7 @@ function Home(){
                         <p className='capitalize font-bold'>take care of Landlord!</p>
                     </div>
 
-                    <div className='w-[75%]'>
+                    <div className='w-[90%] lg:w-[75%]'>
                         <div className='mb-4 flex justify-center items-center bg-white p-2 drop-shadow-xl rounded-md aspect-square w-[50%]'>
                             <svg width="39" height="39" viewBox="0 0 39 39" fill="none">
                                 <path d="M19.5 38.25C9.14439 38.25 0.750015 29.8556 0.750015 19.5C0.750015 9.14437 9.14439 0.75 19.5 0.75C29.8556 0.75 38.25 9.14437 38.25 19.5C38.25 29.8556 29.8556 38.25 19.5 38.25ZM19.5 34.5C23.4783 34.5 27.2936 32.9196 30.1066 30.1066C32.9197 27.2936 34.5 23.4782 34.5 19.5C34.5 15.5218 32.9197 11.7064 30.1066 8.8934C27.2936 6.08035 23.4783 4.5 19.5 4.5C15.5218 4.5 11.7065 6.08035 8.89341 8.8934C6.08037 11.7064 4.50001 15.5218 4.50001 19.5C4.50001 23.4782 6.08037 27.2936 8.89341 30.1066C11.7065 32.9196 15.5218 34.5 19.5 34.5ZM12.9375 23.25H23.25C23.4987 23.25 23.7371 23.1512 23.9129 22.9754C24.0887 22.7996 24.1875 22.5611 24.1875 22.3125C24.1875 22.0639 24.0887 21.8254 23.9129 21.6496C23.7371 21.4738 23.4987 21.375 23.25 21.375H15.75C14.5068 21.375 13.3145 20.8811 12.4355 20.0021C11.5564 19.123 11.0625 17.9307 11.0625 16.6875C11.0625 15.4443 11.5564 14.252 12.4355 13.3729C13.3145 12.4939 14.5068 12 15.75 12H17.625V8.25H21.375V12H26.0625V15.75H15.75C15.5014 15.75 15.2629 15.8488 15.0871 16.0246C14.9113 16.2004 14.8125 16.4389 14.8125 16.6875C14.8125 16.9361 14.9113 17.1746 15.0871 17.3504C15.2629 17.5262 15.5014 17.625 15.75 17.625H23.25C24.4932 17.625 25.6855 18.1189 26.5646 18.9979C27.4437 19.877 27.9375 21.0693 27.9375 22.3125C27.9375 23.5557 27.4437 24.748 26.5646 25.6271C25.6855 26.5061 24.4932 27 23.25 27H21.375V30.75H17.625V27H12.9375V23.25Z" fill="#F4511E"/>
@@ -133,7 +138,7 @@ function Home(){
                         <p className='capitalize font-bold'>Environment!</p>
                     </div>
 
-                    <div className='w-[75%]'>
+                    <div className='w-[90%] lg:w-[75%]'>
                         <div className='mb-4 flex justify-center items-center bg-white p-2 drop-shadow-xl rounded-md aspect-square w-[50%]'>
                             <svg width="39" height="39" viewBox="0 0 39 39" fill="none">
                                 <path d="M19.5 38.25C9.14439 38.25 0.750015 29.8556 0.750015 19.5C0.750015 9.14437 9.14439 0.75 19.5 0.75C29.8556 0.75 38.25 9.14437 38.25 19.5C38.25 29.8556 29.8556 38.25 19.5 38.25ZM19.5 34.5C23.4783 34.5 27.2936 32.9196 30.1066 30.1066C32.9197 27.2936 34.5 23.4782 34.5 19.5C34.5 15.5218 32.9197 11.7064 30.1066 8.8934C27.2936 6.08035 23.4783 4.5 19.5 4.5C15.5218 4.5 11.7065 6.08035 8.89341 8.8934C6.08037 11.7064 4.50001 15.5218 4.50001 19.5C4.50001 23.4782 6.08037 27.2936 8.89341 30.1066C11.7065 32.9196 15.5218 34.5 19.5 34.5ZM12.9375 23.25H23.25C23.4987 23.25 23.7371 23.1512 23.9129 22.9754C24.0887 22.7996 24.1875 22.5611 24.1875 22.3125C24.1875 22.0639 24.0887 21.8254 23.9129 21.6496C23.7371 21.4738 23.4987 21.375 23.25 21.375H15.75C14.5068 21.375 13.3145 20.8811 12.4355 20.0021C11.5564 19.123 11.0625 17.9307 11.0625 16.6875C11.0625 15.4443 11.5564 14.252 12.4355 13.3729C13.3145 12.4939 14.5068 12 15.75 12H17.625V8.25H21.375V12H26.0625V15.75H15.75C15.5014 15.75 15.2629 15.8488 15.0871 16.0246C14.9113 16.2004 14.8125 16.4389 14.8125 16.6875C14.8125 16.9361 14.9113 17.1746 15.0871 17.3504C15.2629 17.5262 15.5014 17.625 15.75 17.625H23.25C24.4932 17.625 25.6855 18.1189 26.5646 18.9979C27.4437 19.877 27.9375 21.0693 27.9375 22.3125C27.9375 23.5557 27.4437 24.748 26.5646 25.6271C25.6855 26.5061 24.4932 27 23.25 27H21.375V30.75H17.625V27H12.9375V23.25Z" fill="#F4511E"/>
@@ -143,7 +148,7 @@ function Home(){
                         <p className='capitalize font-bold'>Save Money!</p>
                     </div>
 
-                    <div className='w-[75%]'>
+                    <div className='w-[90%] lg:w-[75%]'>
                         <div className='mb-4 flex justify-center items-center bg-white p-2 drop-shadow-xl rounded-md aspect-square w-[50%]'>
                             <svg width="39" height="39" viewBox="0 0 39 39" fill="none">
                                 <path d="M19.5 38.25C9.14439 38.25 0.750015 29.8556 0.750015 19.5C0.750015 9.14437 9.14439 0.75 19.5 0.75C29.8556 0.75 38.25 9.14437 38.25 19.5C38.25 29.8556 29.8556 38.25 19.5 38.25ZM19.5 34.5C23.4783 34.5 27.2936 32.9196 30.1066 30.1066C32.9197 27.2936 34.5 23.4782 34.5 19.5C34.5 15.5218 32.9197 11.7064 30.1066 8.8934C27.2936 6.08035 23.4783 4.5 19.5 4.5C15.5218 4.5 11.7065 6.08035 8.89341 8.8934C6.08037 11.7064 4.50001 15.5218 4.50001 19.5C4.50001 23.4782 6.08037 27.2936 8.89341 30.1066C11.7065 32.9196 15.5218 34.5 19.5 34.5ZM12.9375 23.25H23.25C23.4987 23.25 23.7371 23.1512 23.9129 22.9754C24.0887 22.7996 24.1875 22.5611 24.1875 22.3125C24.1875 22.0639 24.0887 21.8254 23.9129 21.6496C23.7371 21.4738 23.4987 21.375 23.25 21.375H15.75C14.5068 21.375 13.3145 20.8811 12.4355 20.0021C11.5564 19.123 11.0625 17.9307 11.0625 16.6875C11.0625 15.4443 11.5564 14.252 12.4355 13.3729C13.3145 12.4939 14.5068 12 15.75 12H17.625V8.25H21.375V12H26.0625V15.75H15.75C15.5014 15.75 15.2629 15.8488 15.0871 16.0246C14.9113 16.2004 14.8125 16.4389 14.8125 16.6875C14.8125 16.9361 14.9113 17.1746 15.0871 17.3504C15.2629 17.5262 15.5014 17.625 15.75 17.625H23.25C24.4932 17.625 25.6855 18.1189 26.5646 18.9979C27.4437 19.877 27.9375 21.0693 27.9375 22.3125C27.9375 23.5557 27.4437 24.748 26.5646 25.6271C25.6855 26.5061 24.4932 27 23.25 27H21.375V30.75H17.625V27H12.9375V23.25Z" fill="#F4511E"/>
@@ -172,7 +177,7 @@ function Home(){
                     properties.map((prop, index)=>(
                         
                     <div className=' bg-white border border-[#979797] rounded-[28px] drop-shadow-xl' key={index}>
-                        <img src={prop.img} className="object-cover w-full" />
+                        <img alt="quote" src={prop.img} className="object-cover w-full" />
                         <div className='p-6'>
                             <p className='font-bold text-xl capitalize'>{prop.loc}</p>
                             <p className='text-[#818181] mt-4 text-lg'>{prop.type}</p>
@@ -188,7 +193,7 @@ function Home(){
                             </div>
                             <div className='flex items-center justify-center p-4'>
                                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M17.0247 10.2949C17.221 10.2963 17.4082 10.3785 17.5421 10.522C17.6764 10.6628 17.7461 10.8531 17.7345 11.0473C17.5212 14.6112 14.5689 17.3923 10.9987 17.3927H7.4356C3.86533 17.3923 0.913099 14.6112 0.699814 11.0473C0.690463 10.8535 0.759541 10.6642 0.891454 10.522C1.02445 10.3767 1.21259 10.2942 1.40959 10.2949H3.97756C4.13406 10.2964 4.27305 10.1952 4.31968 10.0458C4.50504 9.45635 5.05037 9.05452 5.66825 9.05208H9.22068C9.83856 9.05452 10.3839 9.45635 10.5693 10.0458C10.6155 10.1939 10.7526 10.2948 10.9078 10.2949H14.7172C14.9132 10.2949 15.0721 10.136 15.0721 9.94001V2.48736C15.0729 2.20686 14.9084 1.9522 14.6524 1.83756C14.3964 1.72291 14.0969 1.76978 13.8882 1.95715L13.5972 2.24816C13.5025 2.34353 13.4698 2.48421 13.5127 2.61157C13.7602 3.34256 13.5724 4.15066 13.0279 4.6976L12.886 4.84311C12.6088 5.12019 12.1595 5.12019 11.8823 4.84311L10.005 2.96504C9.7279 2.68787 9.7279 2.23858 10.005 1.96141L10.1505 1.81591C10.7039 1.28721 11.503 1.1051 12.2308 1.34178C12.3573 1.38194 12.4955 1.34827 12.5893 1.25448L12.9179 0.925849C13.5389 0.35201 14.4406 0.199975 15.2154 0.538463C15.9903 0.876951 16.4914 1.64182 16.4923 2.48736V9.94001C16.4923 10.136 16.6512 10.2949 16.8472 10.2949H17.0247ZM8.8623 14.731C9.0583 14.731 9.21719 14.5722 9.21719 14.3762V10.8273C9.21719 10.6313 9.0583 10.4724 8.8623 10.4724H6.0232C5.8272 10.4724 5.66831 10.6313 5.66831 10.8273V14.3762C5.66831 14.5722 5.8272 14.731 6.0232 14.731H8.8623Z" fill="black"/>
+                                    <path fillRule="evenodd" clipRule="evenodd" d="M17.0247 10.2949C17.221 10.2963 17.4082 10.3785 17.5421 10.522C17.6764 10.6628 17.7461 10.8531 17.7345 11.0473C17.5212 14.6112 14.5689 17.3923 10.9987 17.3927H7.4356C3.86533 17.3923 0.913099 14.6112 0.699814 11.0473C0.690463 10.8535 0.759541 10.6642 0.891454 10.522C1.02445 10.3767 1.21259 10.2942 1.40959 10.2949H3.97756C4.13406 10.2964 4.27305 10.1952 4.31968 10.0458C4.50504 9.45635 5.05037 9.05452 5.66825 9.05208H9.22068C9.83856 9.05452 10.3839 9.45635 10.5693 10.0458C10.6155 10.1939 10.7526 10.2948 10.9078 10.2949H14.7172C14.9132 10.2949 15.0721 10.136 15.0721 9.94001V2.48736C15.0729 2.20686 14.9084 1.9522 14.6524 1.83756C14.3964 1.72291 14.0969 1.76978 13.8882 1.95715L13.5972 2.24816C13.5025 2.34353 13.4698 2.48421 13.5127 2.61157C13.7602 3.34256 13.5724 4.15066 13.0279 4.6976L12.886 4.84311C12.6088 5.12019 12.1595 5.12019 11.8823 4.84311L10.005 2.96504C9.7279 2.68787 9.7279 2.23858 10.005 1.96141L10.1505 1.81591C10.7039 1.28721 11.503 1.1051 12.2308 1.34178C12.3573 1.38194 12.4955 1.34827 12.5893 1.25448L12.9179 0.925849C13.5389 0.35201 14.4406 0.199975 15.2154 0.538463C15.9903 0.876951 16.4914 1.64182 16.4923 2.48736V9.94001C16.4923 10.136 16.6512 10.2949 16.8472 10.2949H17.0247ZM8.8623 14.731C9.0583 14.731 9.21719 14.5722 9.21719 14.3762V10.8273C9.21719 10.6313 9.0583 10.4724 8.8623 10.4724H6.0232C5.8272 10.4724 5.66831 10.6313 5.66831 10.8273V14.3762C5.66831 14.5722 5.8272 14.731 6.0232 14.731H8.8623Z" fill="black"/>
                                     <path d="M7.08789 4.67918C7.19037 4.68008 7.29183 4.65877 7.38529 4.61672L8.67424 4.02193C8.90487 3.91606 9.0615 3.69519 9.08513 3.44253C9.10876 3.18986 8.9958 2.94378 8.7888 2.79699C8.5818 2.65019 8.31221 2.62498 8.08158 2.73085L6.79049 3.32493C6.48782 3.46459 6.32311 3.79606 6.39461 4.12165C6.46611 4.44723 6.75455 4.67919 7.08789 4.67918Z" fill="black"/>
                                     <path d="M10.7233 8.52695C11.0838 8.68072 11.5006 8.51327 11.6545 8.1529L12.2124 6.84691C12.3563 6.48868 12.1875 6.08115 11.8324 5.92959C11.4774 5.77803 11.0663 5.93803 10.9071 6.28974L10.3528 7.59786C10.2 7.95675 10.3655 8.37167 10.7233 8.52695Z" fill="black"/>
                                     <path d="M8.14258 6.80016C8.41838 7.07862 8.86767 7.08084 9.14621 6.80513L10.1555 5.80718C10.4265 5.53027 10.4254 5.0872 10.153 4.81169C9.88055 4.53617 9.43752 4.53003 9.15756 4.79788L8.14826 5.79653C7.8696 6.07213 7.86706 6.52143 8.14258 6.80016Z" fill="black"/>
@@ -205,7 +210,7 @@ function Home(){
                                     <path d="M12.7498 14.2635C12.3578 14.2635 12.04 14.5813 12.04 14.9733V16.7478C12.04 17.1398 12.3578 17.4575 12.7498 17.4575C13.1418 17.4575 13.4596 17.1398 13.4596 16.7478V14.9733C13.4596 14.5813 13.1418 14.2635 12.7498 14.2635Z" fill="black"/>
                                     <path d="M15.234 6.10101H17.0085C17.4005 6.10101 17.7183 5.78323 17.7183 5.39123C17.7183 4.99924 17.4005 4.68146 17.0085 4.68146H15.234C14.842 4.68146 14.5243 4.99924 14.5243 5.39123C14.5243 5.78323 14.842 6.10101 15.234 6.10101Z" fill="black"/>
                                     <path d="M17.0085 11.7794H15.234C14.842 11.7794 14.5243 12.0971 14.5243 12.4891C14.5243 12.8811 14.842 13.1989 15.234 13.1989H17.0085C17.4005 13.1989 17.7183 12.8811 17.7183 12.4891C17.7183 12.0971 17.4005 11.7794 17.0085 11.7794Z" fill="black"/>
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7498 4.68146C13.1418 4.68146 13.4596 4.99924 13.4596 5.39123V12.489C13.4596 12.881 13.1418 13.1988 12.7498 13.1988H5.65201C5.26001 13.1988 4.94223 12.881 4.94223 12.489V5.39123C4.94223 4.99924 5.26001 4.68146 5.65201 4.68146H12.7498ZM11.6851 11.7791C11.8811 11.7791 12.04 11.6202 12.04 11.4242V6.4558C12.04 6.2598 11.8811 6.10091 11.6851 6.10091H6.71663C6.52063 6.10091 6.36174 6.2598 6.36174 6.4558V11.4242C6.36174 11.6202 6.52063 11.7791 6.71663 11.7791H11.6851Z" fill="black"/>
+                                    <path fillRule="evenodd" clipRule="evenodd" d="M12.7498 4.68146C13.1418 4.68146 13.4596 4.99924 13.4596 5.39123V12.489C13.4596 12.881 13.1418 13.1988 12.7498 13.1988H5.65201C5.26001 13.1988 4.94223 12.881 4.94223 12.489V5.39123C4.94223 4.99924 5.26001 4.68146 5.65201 4.68146H12.7498ZM11.6851 11.7791C11.8811 11.7791 12.04 11.6202 12.04 11.4242V6.4558C12.04 6.2598 11.8811 6.10091 11.6851 6.10091H6.71663C6.52063 6.10091 6.36174 6.2598 6.36174 6.4558V11.4242C6.36174 11.6202 6.52063 11.7791 6.71663 11.7791H11.6851Z" fill="black"/>
                                 </svg>
                                 <p className='ml-2 font-bold'>2</p>
                             </div>
@@ -239,8 +244,8 @@ function Home(){
                     {
                         flexible.map((flex, index)=>(
                             index<=1?
-                            <div className={index==0?'relative rounded-xl w-[70%]':'relative rounded-xl w-[70%] ml-[-45%]'}>
-                                <img src={flex.img} />
+                            <div className={index===0?'relative rounded-xl w-[70%]':'relative rounded-xl w-[70%] ml-[-45%]'}>
+                                <img alt="quote" src={flex.img} />
                                 <p className='w-[70%] text-center text-sm capitalize text-white font-bold absolute top-4 left-[50%] translate-x-[-50%]'>{flex.title}</p>
                             </div>
                             : undefined
@@ -251,8 +256,8 @@ function Home(){
                     {
                         flexible.map((flex, index)=>(
                             index>=2?
-                            <div className={index==2?'relative rounded-xl w-[60%] ml-[-10%]': "relative rounded-xl w-[90%] ml-[-45%] "}>
-                                <img src={flex.img} />
+                            <div className={index===2?'relative rounded-xl w-[60%] ml-[-10%]': "relative rounded-xl w-[90%] ml-[-45%] "}>
+                                <img alt="quote" src={flex.img} />
                                 <p className='w-[70%] text-center text-sm capitalize text-white font-bold absolute top-4 left-[50%] translate-x-[-50%]'>{flex.title}</p>
                             </div>
                             : undefined
@@ -326,61 +331,77 @@ function Home(){
                 </button>
             </div>
         </div>
-        <div className='flex items-center bg-[rgba(244,81,30,0.07)]'>
-            <div className='w-[60%]'>
-                <div className='relative flex flex-col items-center justify-center'>
-                    <p className='w-[60%] leading-8 mb-4 mt-10'>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum nisl et nunc facilisis, 
-                        a commodo eros mollis. Nunc vel pellentesque est. Curabitur at odio sit amet libero vulputate efficitur 
-                        ac nec justo. Nulla vitae mauris quam. Nulla quam massa, faucibus id pretium ac, mattis eu velit. Donec sed 
-                        risus a lacus fringilla finibus.
-                    </p>
-                    <img src={quote} className="absolute top-[2%] left-[13%] opacity-[0.3] "/>
-                    
-                    <div className='w-[60%] flex justify-start items-center mb-20'>
-                        <div className='w-[15%] aspect-square rounded-full mr-2 overflow-hidden'>
-                            <img src={user} className="w-full object-cover" />
+        <div className='w-full'>
+        <Swiper
+            // install Swiper modules
+            modules={[Navigation, Pagination, Scrollbar, A11y]}
+            spaceBetween={0}
+            slidesPerView={1}
+            navigation
+            pagination={{ clickable: true }}
+            scrollbar={{ draggable: true }}
+            onSwiper={(swiper) => console.log(swiper)}
+            onSlideChange={() => console.log('slide change')}
+        >
+            {
+                [1,1,1].map((swip, index)=>(
+                    <SwiperSlide>
+                        <div className='flex items-center bg-[rgba(244,81,30,0.07)] w-full'>
+                            <div className='w-[60%]'>
+                                <div className='relative flex flex-col items-center justify-center'>
+                                    <p className='w-[60%] leading-8 mb-4 mt-10'>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum nisl et nunc facilisis, 
+                                        a commodo eros mollis. Nunc vel pellentesque est. Curabitur at odio sit amet libero vulputate efficitur 
+                                        ac nec justo. Nulla vitae mauris quam. Nulla quam massa, faucibus id pretium ac, mattis eu velit. Donec sed 
+                                        risus a lacus fringilla finibus.
+                                    </p>
+                                    <img alt="quote" src={quote} className="absolute top-[2%] left-[13%] opacity-[0.3] "/>
+                                    
+                                    <div className='w-[60%] flex justify-start items-center mb-20'>
+                                        <div className='w-[15%] aspect-square rounded-full mr-2 overflow-hidden'>
+                                            <img alt="user" src={user} className="w-full object-cover" />
+                                        </div>
+                                        <div className='w-full'>
+                                            <p className='text-[#F4511E] font-bold'>Harry Wilson</p>
+                                            <p>Property Owner</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='w-[40%] relative'>
+                                <img alt="quote" src={hello} className="object-cover w-full" />
+                                <div className='absolute z-[1] top-0  left-0 right-0 bottom-0 bg-[rgba(0,0,0,0.3)]'></div>
+                                <img alt="play icon" src={play} className="absolute left-[50%] top-[50%] z-[2] -translate-x-[50%] -translate-y-[50%]" />
+                            </div>
                         </div>
-                        <div className='w-full'>
-                            <p className='text-[#F4511E] font-bold'>Harry Wilson</p>
-                            <p>Property Owner</p>
-                        </div>
-                    </div>
-                    <div className='flex w-[60%]'>
-                        <div className='w-[1vw] aspect-square bg-[#F4511E] rounded-full mr-2'></div>
-                        <div className='w-[1vw] aspect-square bg-[#D9DBE1] rounded-full mr-2'></div>
-                        <div className='w-[1vw] aspect-square bg-[#D9DBE1] rounded-full'></div>
-                    </div>
-                </div>
-            </div>
-            <div className='w-[40%] relative'>
-                <img src={hello} className="object-cover w-full" />
-                <div className='absolute z-[1] top-0  left-0 right-0 bottom-0 bg-[rgba(0,0,0,0.3)]'></div>
-                <img src={play} className="absolute left-[50%] top-[50%] z-[2] -translate-x-[50%] -translate-y-[50%]" />
-            </div>
+                    </SwiperSlide>
+                ))
+            }
+        </Swiper>
         </div>
+
         <div className='flex flex-col px-[10%] py-[5%] w-full'>
             <div className='h-[2px] w-full bg-[#F4511E] mt-14'></div>
             <div className='flex py-[5%]'>
                 <div className='w-[50%] flex justify-center items-center'>
-                    <img src={logoCol} />
+                    <img alt="logo" src={logoCol} />
                 </div>
                 <div className='w-[50%]'>
                     <div className='w-[75%] grid grid-cols-2 gap-y-4 justify-items-stretch mb-4'>
-                        <p className='text-[80%] text-[#0A142F] col-span-2'><img src={loc} className="inline-block mr-4" />345 Faulconer Drive, Suite 4 • Charlottesville, CA, 12345</p>
-                        <p className='text-[80%] text-[#0A142F]'><img src={phone} className="inline-block mr-4" />(123) 456-7890</p>
-                        <p className='text-[80%] text-[#0A142F]'><img src={print} className="inline-block mr-4" />(123) 456-7890</p>
+                        <p className='text-[80%] text-[#0A142F] col-span-2'><img alt="quote" src={loc} className="inline-block mr-4" />345 Faulconer Drive, Suite 4 • Charlottesville, CA, 12345</p>
+                        <p className='text-[80%] text-[#0A142F]'><img alt="quote" src={phone} className="inline-block mr-4" />(123) 456-7890</p>
+                        <p className='text-[80%] text-[#0A142F]'><img alt="quote" src={print} className="inline-block mr-4" />(123) 456-7890</p>
                     </div>
                     <div className='flex items-center justify-between w-[65%]'>
                         <p className='text-[80%] text-[#0A142F] opacity-[0.5]'>Social Media</p>
-                        <img src={fb} />
-                        <img src={twit} />
-                        <img src={lin} />
-                        <img src={tube} />
-                        <img src={gram} />
-                        <img src={gplus} />
-                        <img src={pin} />
-                        <img src={rss} />
+                        <img alt="fb icon" src={fb} />
+                        <img alt="twitter icon" src={twit} />
+                        <img alt="linked in" src={lin} />
+                        <img alt="youtube" src={tube} />
+                        <img alt="instagram" src={gram} />
+                        <img alt="google_plus" src={gplus} />
+                        <img alt="pintrest" src={pin} />
+                        <img alt="RSS" src={rss} />
                     </div>
                 </div>
             </div>
