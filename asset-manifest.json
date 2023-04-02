@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/home_rentals/static/css/main.c76ae863.css",
-    "main.js": "/home_rentals/static/js/main.50ea17fb.js",
+    "main.css": "/home_rentals/static/css/main.781788bf.css",
+    "main.js": "/home_rentals/static/js/main.34780d30.js",
     "static/js/787.0f4012aa.chunk.js": "/home_rentals/static/js/787.0f4012aa.chunk.js",
     "static/media/bigHouse.png": "/home_rentals/static/media/bigHouse.142e928d18cf83431394.png",
     "static/media/hello.jpg": "/home_rentals/static/media/hello.58bd19259072c51dc9cf.jpg",
@@ -31,12 +31,12 @@
     "static/media/print.svg": "/home_rentals/static/media/print.c6011704fc780d663e81c12dc83172bf.svg",
     "static/media/phone.svg": "/home_rentals/static/media/phone.a7e07808938fd60eb9725f5d008508fc.svg",
     "static/media/loc.svg": "/home_rentals/static/media/loc.58f5d8fe6f5eafda0e9702256c5a9f8d.svg",
-    "main.c76ae863.css.map": "/home_rentals/static/css/main.c76ae863.css.map",
-    "main.50ea17fb.js.map": "/home_rentals/static/js/main.50ea17fb.js.map",
+    "main.781788bf.css.map": "/home_rentals/static/css/main.781788bf.css.map",
+    "main.34780d30.js.map": "/home_rentals/static/js/main.34780d30.js.map",
     "787.0f4012aa.chunk.js.map": "/home_rentals/static/js/787.0f4012aa.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c76ae863.css",
-    "static/js/main.50ea17fb.js"
+    "static/css/main.781788bf.css",
+    "static/js/main.34780d30.js"
   ]
 }
