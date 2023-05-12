@@ -64,7 +64,7 @@ function Home(){
             <div className='absolute bg-[rgba(0,0,0,0.4)] w-[100%] h-[100%] z-[1]'></div>
             <img alt="quote" src={bigHouse} className="absolute object-cover h-full w-full" />
             <div className='absolute z-[2] flex flex-col lg:flex-row items-center justify-around left-[50%] top-[50%] -translate-x-[50%] -translate-y-[50%] items-center w-[100%]'>
-                <p className='text-white font-bold text-[200%] w-[80%] lg:w-[30%] ml-[5%] capitalize text-center lg:text-left'>
+                <p className='text-white font-bold text-[100%] lg:text-[200%] w-[80%] lg:w-[30%] ml-[5%] capitalize text-center lg:text-left'>
                     The Most Affortable Place To Stay In the san franciso bay area
                 </p>
                 <div className ="w-[90%] md:w-[80%] lg:w-[40%] flex flex-col items-center lg:block mt-8 lg:mt-0">
